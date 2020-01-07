@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Client.Configs.View;
+using UnityEngine;
 
 namespace GameEngine
 {
     public class ViewSourceComponent
     {
-        public GameObject Prefab;
+        public ViewType ViewType;
     }
 }

@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Xml.Serialization;
 
 namespace Leopotam.Ecs {
     /// <summary>
@@ -73,6 +74,7 @@ namespace Leopotam.Ecs {
         readonly Dictionary<int, int> _namedRunSystems = new Dictionary<int, int> (64);
         readonly Dictionary<Type, object> _injections = new Dictionary<Type, object> (32);
         bool _injected;
+        private readonly EcsSystemsResolver _systemsResolver;
 #if DEBUG
         bool _inited;
         bool _destroyed;
@@ -105,6 +107,19 @@ namespace Leopotam.Ecs {
         public EcsSystems (EcsWorld world, string name = null) {
             World = world;
             Name = name;
+
+            _systemsResolver = new EcsSystemsResolver();
+            _systemsResolver.Init();
+        }
+
+        public EcsSystems Add<T>(T system = null, string namedRunSystem = null) where T : class, IEcsSystem, new()
+        {
+            if (system == null)
+            {
+                system = _systemsResolver.Resolve<T>();
+            }
+
+            return AddInternal(system, namedRunSystem);
         }
 
         /// <summary>
@@ -112,7 +127,7 @@ namespace Leopotam.Ecs {
         /// </summary>
         /// <param name="system">System instance.</param>
         /// <param name="namedRunSystem">Optional name of system.</param>
-        public EcsSystems Add (IEcsSystem system, string namedRunSystem = null) {
+        private EcsSystems AddInternal (IEcsSystem system, string namedRunSystem) {
 #if DEBUG
             if (system == null) { throw new Exception ("System is null."); }
             if (_inited) { throw new Exception ("Cant add system after initialization."); }

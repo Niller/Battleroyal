@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameEngine.Systems
 {
-    class DebugSystem : IEcsRunSystem
+    internal class DebugSystem : IEcsRunSystem
     {
         public void Run()
         {

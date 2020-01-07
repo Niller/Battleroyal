@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 1804789184, guid: faffe7b8bf7d0d5458b4b15129c30483, type: 3}
   m_Name: ViewConfig
   m_EditorClassIdentifier: 
-  _items: []
+  _items:
+  - Type: 0
+    GameObject: {fileID: 4399714922860730671, guid: 283e6530a665e4513959d1cd4883682f,
+      type: 3}
