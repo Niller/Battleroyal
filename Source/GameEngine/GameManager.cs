@@ -20,7 +20,9 @@ namespace GameEngine
         {
             World = new EcsWorld();
             Systems = new EcsSystems(World);
-            Systems.Add<CreatePlayerSystem>();
+            Systems.
+                Add<CreatePlayerSystem>().
+                Add<RotatePlayerSystem>();
 ;        }
 
         public void Start()

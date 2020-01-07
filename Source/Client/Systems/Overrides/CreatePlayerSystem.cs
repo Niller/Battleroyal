@@ -12,6 +12,7 @@ namespace Client.Systems.Overrides
             base.Init();
 
             PlayerEntity.Set<ViewSourceComponent>().ViewType = ViewType.Human;
+            PlayerEntity.Set<SyncViewComponent>();
         }
     }
 }

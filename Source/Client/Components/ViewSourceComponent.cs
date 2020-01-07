@@ -1,5 +1,4 @@
 ﻿using Client.Configs.View;
-using UnityEngine;
 
 namespace GameEngine
 {

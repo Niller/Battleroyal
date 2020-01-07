@@ -1,6 +1,6 @@
 ﻿namespace GameEngine
 {
-    public class ViewSyncComponent
+    public class SyncViewComponent
     {
         
     }

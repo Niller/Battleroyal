@@ -11,9 +11,10 @@ public class ApplicationManager : MonoBehaviour
         GameManager.Instance.Initialize();
 
         GameManager.Instance.Systems.
-            Add<DebugSystem>().
+            Add<InputSystem>().
             Add<CreateViewSystem>().
-            Add<RemoveViewSystem>();
+            Add<RemoveViewSystem>().
+            Add<SyncViewSystem>();
 
         GameManager.Instance.Start();
     }

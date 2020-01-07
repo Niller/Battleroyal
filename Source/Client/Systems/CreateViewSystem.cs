@@ -28,10 +28,10 @@ namespace GameEngine.Systems
 
                 var instance = Object.Instantiate(prefab);
 
-                var view = entity.Get<ViewComponent>();
+                var view = entity.Set<ViewComponent>();
                 if (view != null)
                 {
-                    view.View = instance;
+                    view.Value = instance;
                 }
             }
         }

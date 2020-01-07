@@ -4,6 +4,6 @@ namespace GameEngine
 {
     public class ViewComponent
     {
-        public GameObject View;
+        public GameObject Value;
     }
 }

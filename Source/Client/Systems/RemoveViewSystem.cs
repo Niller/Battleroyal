@@ -19,13 +19,13 @@ namespace GameEngine.Systems
 
                 Debug.Log($"Try remove from entity {entity}");
 
-                if (view.View == null)
+                if (view.Value == null)
                 {
                     Debug.LogWarning($"Cannot remove view due to view == null");
                     continue;
                 }
                 
-                Object.Destroy(view.View);
+                Object.Destroy(view.Value);
             }
         }
     }
