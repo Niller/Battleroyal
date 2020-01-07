@@ -10,6 +10,9 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+obj/
+bin/
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
@@ -55,6 +58,12 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+Assets/Plugins/*.dll
+Assets/Plugins/*.pdb*
+Assets/Plugins/*.mdb*
+
 # Crashlytics generated file
 crashlytics-build.properties
 
+Packages/*
+!Packages/manifest.json
