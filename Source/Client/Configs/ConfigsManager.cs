@@ -12,7 +12,11 @@ namespace Client.Configs
     {
         public static ConfigsManager Instance;
 
+#pragma warning disable 649
+
         public ViewConfig ViewConfig;
+
+#pragma warning restore 649
 
         private void Awake()
         {

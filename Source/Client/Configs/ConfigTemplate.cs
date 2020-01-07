@@ -23,7 +23,13 @@ namespace Client.Configs
             _itemsDictionary = new Dictionary<TKey, TValue>(_items.Length);
             foreach (var viewConfigItem in _items)
             {
-                _itemsDictionary.Add(viewConfigItem.GetKey(), viewConfigItem.GetValue());
+                var key = viewConfigItem.GetKey();
+                if (_itemsDictionary.ContainsKey(key))
+                {
+                    Debug.LogError($"Value with key {key} has been already added into dictionary");
+                    continue;
+                }
+                _itemsDictionary.Add(key, viewConfigItem.GetValue());
             }
         }
 
