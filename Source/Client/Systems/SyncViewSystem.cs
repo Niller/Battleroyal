@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Client.View;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace GameEngine.Systems
@@ -22,9 +23,17 @@ namespace GameEngine.Systems
                 } 
 
                 var rotation = entity.Get<RotationComponent>();
-                if (rotation != null) 
+                if (rotation != null)
                 {
-                    view.Value.transform.rotation = Quaternion.Euler(0, rotation.Value, 0);
+                    var rotationController = view.Value.GetComponent<RotationController>();
+                    if (rotationController != null)
+                    {
+                        rotationController.SetRotation(rotation.Value);
+                    }
+                    else
+                    {
+                        view.Value.transform.rotation = Quaternion.Euler(0, rotation.Value, 0);
+                    }
                 }
             }
             

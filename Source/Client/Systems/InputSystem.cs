@@ -34,13 +34,14 @@ namespace GameEngine.Systems
             var screenPoint = (Vector2)Camera.main.WorldToScreenPoint(currentPosition) - offset;
             var mousePoint = ((Vector2)Input.mousePosition - offset).normalized;
 
-            var angle = Vector2.SignedAngle(Vector2.up, mousePoint);
+            var angle = -Vector2.SignedAngle(Vector2.up, mousePoint);
+            angle = angle < 0 ? 360 + angle : angle;
             //var angle = new Vector2(Mathf.Acos(mousePoint.x) * Mathf.Rad2Deg, Mathf.Asin(mousePoint.y) * Mathf.Rad2Deg);
 
-            Debug.Log($"current: {screenPoint} mouse: {mousePoint} angle: {angle}");
+            //Debug.Log($"current: {screenPoint} mouse: {mousePoint} angle: {angle}");
             //Debug.Log(angle);
 
-            _rotateEventEntity.Get<RotateEventComponent>().Value = -angle;
+            _rotateEventEntity.Get<RotateEventComponent>().Value = angle;
         }
     }
 }
