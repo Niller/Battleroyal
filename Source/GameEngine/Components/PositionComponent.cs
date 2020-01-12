@@ -1,9 +1,10 @@
-﻿using SharpDX;
+﻿using System.Numerics;
+using Unity.Mathematics;
 
 namespace GameEngine
 {
     public class PositionComponent
     {
-        public Vector2 Value;
+        public float2 Value;
     }
 }

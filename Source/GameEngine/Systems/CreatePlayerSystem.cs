@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Leopotam.Ecs;
+﻿using Leopotam.Ecs;
 
 namespace GameEngine.Systems
 {
@@ -12,7 +8,11 @@ namespace GameEngine.Systems
 
         public virtual void Init()
         {
-            PlayerEntity = GameManager.Instance.World.NewEntityWith(out PlayerComponent _, out PositionComponent _, out RotationComponent _);
+            PlayerEntity = GameManager.Instance.World.NewEntityWith(
+                out PlayerComponent _, 
+                out PositionComponent _, 
+                out RotationComponent _,
+                out MovementComponent _);
         }
     }
 }

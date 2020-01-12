@@ -6,7 +6,7 @@ namespace GameEngine.Systems
 {
     public class SyncViewSystem : IEcsRunSystem
     {
-        private EcsFilter<SyncViewComponent, ViewComponent> _syncViewFilter = null;
+        private readonly EcsFilter<SyncViewComponent, ViewComponent> _syncViewFilter = null;
 
         public void Run()
         {
@@ -19,7 +19,7 @@ namespace GameEngine.Systems
                 var position = entity.Get<PositionComponent>();
                 if (position != null)
                 {
-                    view.Value.transform.position = new Vector3(position.Value.X, 0, position.Value.Y);
+                    view.Value.transform.position = new Vector3(position.Value.x, 0, position.Value.y);
                 } 
 
                 var rotation = entity.Get<RotationComponent>();

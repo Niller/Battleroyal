@@ -1,12 +1,11 @@
-﻿using System;
-using Leopotam.Ecs;
+﻿using Leopotam.Ecs;
 
 namespace GameEngine.Systems
 {
     public class RotatePlayerSystem : IEcsRunSystem
     {
-        private EcsFilter<RotateEventComponent> _rotateEventFilter = null;
-        private EcsFilter<PlayerComponent, RotationComponent> _playerFilter = null;
+        private readonly EcsFilter<RotateEventComponent> _rotateEventFilter = null;
+        private readonly EcsFilter<PlayerComponent, RotationComponent> _playerFilter = null;
 
         public void Run()
         {

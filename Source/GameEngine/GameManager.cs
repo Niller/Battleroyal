@@ -7,6 +7,7 @@ namespace GameEngine
     {
         public EcsSystems Systems;
         public EcsWorld World;
+        public float DeltaTime;
 
         private static GameManager _instance;
         public static GameManager Instance => _instance ?? (_instance = new GameManager());
@@ -20,9 +21,8 @@ namespace GameEngine
         {
             World = new EcsWorld();
             Systems = new EcsSystems(World);
-            Systems.
-                Add<CreatePlayerSystem>().
-                Add<RotatePlayerSystem>();
+            Systems.Add<CreatePlayerSystem>().Add<MovementSystem>().Add<MovementPlayerSystem>();
+                //Add<RotatePlayerSystem>();
 ;        }
 
         public void Start()
@@ -30,8 +30,9 @@ namespace GameEngine
             Systems.Init();
         }
 
-        public void Update()
+        public void Update(float deltaTime)
         {
+            DeltaTime = deltaTime;
             Systems.Run();
             World.EndFrame();
         }

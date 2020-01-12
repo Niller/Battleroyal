@@ -21,7 +21,7 @@ public class ApplicationManager : MonoBehaviour
 
     void Update()
     {
-        GameManager.Instance.Update();
+        GameManager.Instance.Update(Time.deltaTime);
     }
 
     void OnDisable()
